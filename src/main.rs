@@ -34,12 +34,12 @@ fn handle_reaction(user_reaction: Reactions) {
     }
 }
 
-fn matchig(guess_country: &str) -> Region{
+fn matching(guess_country: &str) -> Region{
     match guess_country.as_str(){
-        Country::Algeria
-        | Country::Angola
-        | Country::Benin
-        | Country::Botswana
+        Country::Algeria => Region::North,
+        Country::Angola => 
+        Country::Benin
+        Country::Botswana
         | Country::BurkinaFaso
         | Country::Burundi
         | Country::CaboVerde
@@ -112,7 +112,7 @@ fn main() {
     //assignes reaction to variable for easy access
     let user_reaction= Reactions::Correct;
 
-    if userguess= 
-
+    if userguess = 
+ //watsuapsaj ax
 
 }
