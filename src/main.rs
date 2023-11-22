@@ -1,20 +1,15 @@
 
 use std::io;
 use std::env;
+use std::process;
 
-enum Reactions{
-    Correct,
-    Lost,
-    Close, 
-    Unknown
-}
-
+#[derive(PartialEq)]
 enum Country {
     Algeria, Angola, Benin, Botswana, BurkinaFaso, Burundi, CaboVerde, Cameroon, CentralAfricanRepublic,Chad,
     Comoros, DRCongo, Egypt, EquatorialGuinea, Eritrea, Eswatini, Ethiopia, Gabon,Gambia, Ghana,
     Guinea, GuineaBissau, IvoryCoast, Kenya, Lesotho, Liberia, Libya, Madagascar, Malawi,Mali, Mauritania,
      Mauritius, Morocco, Mozambique, Namibia, Niger, Nigeria,Rwanda, SaoTomeandPrincipe, Senegal, Seychelles,SierraLeone,
-    Somalia, SouthAfrica, SouthSudan, Sudan, Tanzania,Togo,Tunisia, Uganda, Zambia, Zimbabwe, NOtknown
+    Somalia, SouthAfrica, SouthSudan, Sudan, Tanzania,Togo,Tunisia, Uganda, Zambia, Zimbabwe, Notknown
 }
 
 enum Region {
@@ -23,12 +18,24 @@ enum Region {
     Central,
     East,
     South,
+    Where
 }
 //access the enums
+fn matchingregion(guess_region: &str) -> Region{
+    let user_input_lowercase = guess_region.to_lowercase();
+    match guess_region{
+        "north"=>Region::North,
+        "east"=>Region::East,
+        "west"=>Region::West,
+        "south"=>Region::South,
+        "central"=>Region::North,
+        _=> Region::Where
+    }
+}
+
 
 fn matching(guess_country: &str) -> Country{
     let user_input_lowercase = guess_country.to_lowercase();
-
 
     match  guess_country{
             "algeria" => Country::Algeria,
@@ -82,46 +89,45 @@ fn matching(guess_country: &str) -> Country{
             "uganda"=>Country::Uganda,
             "zambia"=>Country::Zambia,
             "zimbawe"=>Country::Zimbabwe,
-            _ => Country::NOtknown
+            _ => Country::Notknown
 
-    }
-}
-fn matchinggueses(user_guess: &str, actual_country: &str) -> Reactions {
-    if user_guess.trim().to_lowercase() == actual_country.to_lowercase() {
-        Reactions::Correct
-    } else {
-        Reactions::Unknown
-    }
-}
-fn handle_reaction(user_reaction: Reactions) {
-    match user_reaction {
-        Reactions::Correct => println!("Congratulations, you got it."),
-        Reactions::Lost => println!("Sorry, maybe next time."),
-        Reactions::Close => println!("So close, try again."),
-        Reactions::Unknown => println!("Unknown reaction."),
     }
 }
 
 
 
 fn main() {
+    let actual_country = "uganda";
+    println!("\nPlease Enter a Country");
+    println!("Guess what country in Africa Shukra is from");
 
-    let acutal_country = "uganda";
-    println!("Please Enter a guess");
-    println!("Guess a country from East Africa");
 
-    let mut userguess = String::new(); // dynamic string to hold user input
-
-    let country = matching(&mut userguess);
-    for _ in  0..5 {
+    for _ in 0..5 {
+        let mut user_guess = String::new(); // dynamic string to hold user input
         io::stdin()
-        .read_line(&mut userguess)
-        .expect("failed to read line");
-        println!("You've guessed: {}", userguess);
-        let reaction = matchinggueses(& mut userguess, acutal_country);
-        handle_reaction(reaction);
+            .read_line(&mut user_guess)
+            .expect("failed to read line");
 
-        userguess.clear();
+        let mut user_guess = user_guess.trim().to_lowercase();
+        println!("\nYou've guessed: {}\n", user_guess);
+
+        match matching(&user_guess) {
+            Country::Uganda => {
+                println!("Yay, that's right");
+                process::exit(0);
+            } 
+            Country::Notknown => {
+                println!("Where is that?\n");
+                println!("Try again\n");
+                user_guess.clear();
+            }
+         
+            _ => {
+                println!("Try again\n");
+                user_guess.clear();
+            }
+        
+        }
     }
-    
+    println!("Sorry, you've run out of attempts.");
 }
