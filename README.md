@@ -17,4 +17,6 @@ Level 1
             the answer Uganda 
 
 level 2 
-    once the user is paeses level 1 and they wich to contiue, They will guess what region Uganda is in. They can only gues Notth, East, South , West. There is not no NorthEst or any of those secondary cordinated. 
+    once the user is paeses level 1 and they wich to contiue, They will guess what region Uganda is in. They can only gues Notth, East, South , West.
+     There is not no NorthEst or any of those secondary cordinated. 
+     They only get 4 chances
