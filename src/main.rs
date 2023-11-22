@@ -97,9 +97,16 @@ fn matching(guess_country: &str) -> Country{
 
 
 fn main() {
-    let actual_country = "uganda";
+
+
+    println!("\nThere are 5 levels to this game \n");
+    println!("FOr this first level, You only get  5  tries \n");
+    println!("Are you ready? \n");
+    println!("Start \n");
+
     println!("\nPlease Enter a Country");
     println!("Guess what country in Africa Shukra is from");
+
 
 
     for _ in 0..5 {
@@ -117,8 +124,7 @@ fn main() {
                 process::exit(0);
             } 
             Country::Notknown => {
-                println!("Where is that?\n");
-                println!("Try again\n");
+                println!("Where is that? TRY AGAIN\n");
                 user_guess.clear();
             }
          
@@ -130,4 +136,23 @@ fn main() {
         }
     }
     println!("Sorry, you've run out of attempts.");
+
+ 
+
+
+
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
