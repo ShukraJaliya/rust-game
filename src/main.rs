@@ -120,7 +120,9 @@ fn main() {
         let mut user_guess = user_guess.trim().to_lowercase();
         println!("\nYou've guessed: {}\n", user_guess);
 
-        match matching(&user_guess) { //in those tries, it matches the user input to specific out put.
+
+//in those tries, it matches the user input to specific out put.
+        match matching(&user_guess) { 
             Country::Uganda => {
                 println!("YAY!!!!!!!, that's right. How did you know!\n");
                 println!("----------------Level 2----------------\n");
@@ -139,13 +141,47 @@ fn main() {
                 match matchingregion(&user_region){
                     Region::East=>{
                         println!("YAY!!!!!! You have done it again\n");
-                        break;//Ends programmm once answer is correct 
+                        println!("----------------Level 3----------------\n");
+                        println!("Guess what country is North of Gambia. You have 3 tries");
+
+                        for _ in 0..3 {//user gets 5 tries 
+                            let mut above_gambia = String::new(); // dynamic string to hold user input
+                            io::stdin()//reads the user input for country
+                                .read_line(&mut above_gambia)
+                                .expect("failed to read line");
+                    
+                            let above_gambia = above_gambia.trim().to_lowercase();
+                            println!("\nYou've guessed: {}\n", above_gambia);
+
+                            match matching(&above_gambia){
+                                Country::Senegal=>{
+                                    println!("YAY!!!!!! But how did you know? Did you look on the map?\n");
+                                    process::exit(0);
+                                }
+
+                                Country::Notknown => {
+                                    println!("Where is that? TRY AGAIN\n");
+                                    user_guess.clear();
+                                }
+                                _ => {//here is not Ugands but will still search in the African continent
+                                    println!("Hint! Gambia is surrounded by one country\n");
+                                    user_guess.clear();
+                                }
+                            }
+
+
+
+                        }
+
+
+
+                        break;//breaks programmm once answer is correct 
                     }
                     Region::Where => {
                         println!(" Where is that .TRY AGAIN\n");
                         user_region.clear();
                     }
-                    _=>{
+                    _=>{//Here is alse not east but will still search in the 
                         println!("Try again.\n");
                         user_region.clear();
 
@@ -161,7 +197,7 @@ fn main() {
                 println!("Where is that? TRY AGAIN\n");
                 user_guess.clear();
             }
-            _ => {
+            _ => {//here is not Ugands but will still search in the African continent
                 println!("On the right track. it is in Africa but Try again\n");
                 user_guess.clear();
             }
