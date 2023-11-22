@@ -11,7 +11,7 @@ enum Country {
      Mauritius, Morocco, Mozambique, Namibia, Niger, Nigeria,Rwanda, SaoTomeandPrincipe, Senegal, Seychelles,SierraLeone,
     Somalia, SouthAfrica, SouthSudan, Sudan, Tanzania,Togo,Tunisia, Uganda, Zambia, Zimbabwe, Notknown
 }
-
+#[derive(PartialEq)]
 enum Region {
     North,
     West,
@@ -33,7 +33,7 @@ fn matchingregion(guess_region: &str) -> Region{
     }
 }
 
-
+//matching countries to user gueses 
 fn matching(guess_country: &str) -> Country{
     let user_input_lowercase = guess_country.to_lowercase();
 
@@ -104,46 +104,73 @@ fn main() {
     println!("Are you ready? \n");
     println!("Start \n");
 
+    println!("Level 1\n");
+
     println!("\nPlease Enter a Country");
     println!("Guess what country in Africa Shukra is from");
 
-
-
-    for _ in 0..5 {
+    for _ in 0..5 {//user gets 5 tries 
         let mut user_guess = String::new(); // dynamic string to hold user input
-        io::stdin()
+        io::stdin()//reads the user input for country
             .read_line(&mut user_guess)
             .expect("failed to read line");
 
         let mut user_guess = user_guess.trim().to_lowercase();
         println!("\nYou've guessed: {}\n", user_guess);
 
-        match matching(&user_guess) {
+        match matching(&user_guess) { //in those tries, it matches the user input to specific out put.
             Country::Uganda => {
-                println!("Yay, that's right");
-                process::exit(0);
+                println!("YAY!, that's right. How did you know?\n");
+                println!("Level 2\n");
+                println!("Guess what region");
+                println!("You have 4 tries ");
+                println!("Chose Either North, East, South or West\n");
+
+
+            for _ in 0..4 {
+                let mut user_region = String::new(); // dynamic string to hold user input
+                io::stdin()
+                .read_line(&mut user_region)
+                .expect("failed to read line");
+
+            let mut user_region = user_region.trim().to_lowercase();
+
+                match matchingregion(&user_region){
+                    Region::East=>{
+                        println!("YAY! You have done it again\n");
+                        process::exit(0);
+                    }
+                    Region::Where => {
+                        println!(" Where is that .TRY AGAIN\n");
+                        user_region.clear();
+                    }
+                    _=>{
+                        println!("Try again.");
+                        user_region.clear();
+
+                    }
+
+                }
+        
+            }
+            
             } 
             Country::Notknown => {
                 println!("Where is that? TRY AGAIN\n");
                 user_guess.clear();
             }
-         
             _ => {
-                println!("Try again\n");
+                println!("On the right track. it is in Africa but Try again\n");
                 user_guess.clear();
             }
         
         }
     }
-    println!("Sorry, you've run out of attempts.");
+        
+    }
 
  
 
-
-
-
-
-}
 
 
 
