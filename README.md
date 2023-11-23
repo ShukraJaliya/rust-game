@@ -30,8 +30,8 @@ level 2
      They only get 4 chances
 
             the answer is East
-sv
+
 level 3
-    Do you know your stat.
+    Do you know your stats?ss
     if I ask you what is north, east, west or south of what will you be able to tell me.
             the answer to the challenge here is Senegal
