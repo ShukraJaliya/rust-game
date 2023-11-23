@@ -99,7 +99,7 @@ fn matching(guess_country: &str) -> Country{
 fn main() {
 
 
-    println!("\nThere are 5 levels to this game \n");
+    println!("\nThere are 3 levels to this game \n");
     println!("FOr this first level, You only get  5  tries \n");
     println!("if country has two words, write as one eg. South Africa write as southafrica\n");
     println!("Are you ready? \n");
@@ -126,17 +126,18 @@ fn main() {
             Country::Uganda => {
                 println!("YAY!!!!!!!, that's right. How did you know!\n");
                 println!("----------------Level 2----------------\n");
-                println!("Guess what you region Uganda. You have 3 tries");
+                println!("Guess what you region Uganda. You have 4 tries");
                 println!("Chose Either North, East, South or West\n");
 
 
-            for _ in 0..3 {
+            for _ in 0..4 {
                 let mut user_region = String::new(); // dynamic string to hold user input
                 io::stdin()
                 .read_line(&mut user_region)
                 .expect("failed to read line");
 
             let mut user_region = user_region.trim().to_lowercase();
+            println!("\nYou've guessed: {}\n", user_region);
 
                 match matchingregion(&user_region){
                     Region::East=>{
