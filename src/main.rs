@@ -53,7 +53,7 @@ fn matching(guess_country: &str) -> Country{
             "equatorialguinea" =>Country::EquatorialGuinea ,
             "eritiera" =>Country::Eritrea,
             "eswatini" =>Country::Eswatini,
-            "ethiopis" =>Country::Ethiopia,
+            "ethiopia" =>Country::Ethiopia,
             "gabon" =>Country::Gabon,
             "gambia" =>Country::Gambia,
             "ghana" =>Country::Ghana,
@@ -126,7 +126,7 @@ fn main() {
             Country::Uganda => {
                 println!("YAY!!!!!!!, that's right. How did you know!\n");
                 println!("----------------Level 2----------------\n");
-                println!("Guess what region. You have 3 tries");
+                println!("Guess what you region Uganda. You have 3 tries");
                 println!("Chose Either North, East, South or West\n");
 
 
@@ -164,16 +164,12 @@ fn main() {
                                     user_guess.clear();
                                 }
                                 _ => {//here is not Ugands but will still search in the African continent
-                                    println!("Hint! Gambia is surrounded by one country\n");
+                                    println!("Hint! Gambia is surrounded by one country. Try again\n");
                                     user_guess.clear();
                                 }
                             }
 
-
-
                         }
-
-
 
                         break;//breaks programmm once answer is correct 
                     }

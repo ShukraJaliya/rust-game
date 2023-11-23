@@ -7,6 +7,8 @@ Begin:
     pinkshukie@Shukras-MacBook-Air development % cd rust-game
     pinkshukie@Shukras-MacBook-Air rust-game % cargo run
 
+    ps. Its not Case sensitive
+
 Level 1
 here is the list of countries to guess from:
     Algeria, Angola, Benin, Botswana, BurkinaFaso, Burundi, CaboVerde, Cameroon, CentralAfricanRepublic,Chad,
@@ -28,3 +30,8 @@ level 2
      They only get 4 chances
 
             the answer is East
+
+level 3
+    Do you know your stat.
+    if I ask you what is north, east, west or south of what will you be able to tell me.
+            the answer to the challenge here is Senegal
