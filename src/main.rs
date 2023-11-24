@@ -101,7 +101,7 @@ fn main() {
 
     println!("\nThere are 3 levels to this game \n");
     println!("FOr this first level, You only get  5  tries \n");
-    println!("if country has two words, write as one eg. South Africa write as southafrica\n");
+    println!("if the country has two words, write as one eg. South Africa write as southafrica\n");
     println!("Are you ready? \n");
 
     println!("Start \n");
@@ -126,7 +126,7 @@ fn main() {
             Country::Uganda => {
                 println!("YAY!!!!!!!, that's right. How did you know!\n");
                 println!("----------------Level 2----------------\n");
-                println!("Guess what you region Uganda. You have 4 tries");
+                println!("Guess what you region is Uganda. You have 4 tries");
                 println!("Chose Either North, East, South or West\n");
 
 
@@ -186,7 +186,7 @@ fn main() {
 
                 }
         
-            }println!("Sorry, run out of attempts");
+            }println!("Oops, run out of attempts");
             process::exit(0); //exits program when out of attems for region
             
             } 
