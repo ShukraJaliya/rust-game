@@ -126,8 +126,8 @@ fn main() {
             Country::Uganda => {
                 println!("YAY!!!!!!!, that's right. How did you know!\n");
                 println!("----------------Level 2----------------\n");
-                println!("Guess what you region is Uganda. You have 4 tries");
-                println!("Chose Either North, East, South or West\n");
+                println!("Guess what region is Uganda in. You have 4 tries");
+                println!("Chose Either North, East, Central, South or West\n");
 
 
             for _ in 0..4 {
