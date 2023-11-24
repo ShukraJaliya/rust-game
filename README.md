@@ -25,13 +25,13 @@ here is the list of countries to guess from:
             the answer Uganda 
 
 level 2 
-    once the user is paeses level 1 and they wich to contiue, They will guess what region Uganda is in. They can only gues Notth, East, South , West.
+    once the user is paeses level 1 and they wich to contiue, They will guess what region Uganda is in. They can only gues Notth, East, South , West or central.
      There is not no NorthEst or any of those secondary cordinated. 
      They only get 4 chances
 
             the answer is East
 
 level 3
-    Do you know your stats?ss
+    Do you know your stats?
     if I ask you what is north, east, west or south of what will you be able to tell me.
             the answer to the challenge here is Senegal
